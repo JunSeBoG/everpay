@@ -7,6 +7,6 @@ import kotlinx.coroutines.flow.Flow
 interface TransactionRepository {
     fun getTransactionByReference(reference: Int): Flow<Transaction>
     fun getTransactionList(): Flow<List<Transaction>>
-    suspend fun makePayment(payment: Payment)
-    fun deleteTransaction(transaction: Transaction)
+    suspend fun makePayment(payment: Payment): Int
+    suspend fun deleteTransaction(transaction: Transaction)
 }

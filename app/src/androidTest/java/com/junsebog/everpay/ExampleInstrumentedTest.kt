@@ -8,12 +8,11 @@ import com.junsebog.everpay.data.local.AppDatabase
 import com.junsebog.everpay.data.local.LocalDataSource
 import com.junsebog.everpay.data.remote.EvertecApi
 import com.junsebog.everpay.data.remote.RemoteDataSource
-import com.junsebog.everpay.data.remote.dto.PaymentDto
 import com.junsebog.everpay.data.repository.TransactionRepositoryImpl
 import com.junsebog.everpay.domain.model.Card
 import com.junsebog.everpay.domain.model.Payer
 import com.junsebog.everpay.domain.model.Payment
-import com.junsebog.everpay.domain.model.PaymentInfo
+import com.junsebog.everpay.domain.model.Product
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
@@ -21,7 +20,6 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Test
 import org.junit.runner.RunWith
 
-import org.junit.Assert.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -65,7 +63,7 @@ class ExampleInstrumentedTest {
         document = "10101294356",
         mobile = "3162727124"
     )
-    val paymentInfo = PaymentInfo(
+    val paymentInfo = Product(
         total = 360000,
         currency = "COP",
         reference = "JSBG_2022",
@@ -79,7 +77,7 @@ class ExampleInstrumentedTest {
 
     val payment = Payment(
         payer = payer,
-        paymentInfo = paymentInfo,
+        product = paymentInfo,
         card = card,
         installments = 1
     )

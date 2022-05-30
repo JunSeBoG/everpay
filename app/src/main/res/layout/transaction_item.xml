@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <!--
+        referencia
+        monto
+        datos de la tarjeta utilizada
+        estado de la transacción
+    -->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="6dp"
+        app:cardCornerRadius="12dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/round_bg"
+                android:padding="10dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_shopping_bag"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/itemReference"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:ellipsize="marquee"
+                android:hint="Compra de cositas"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/itemDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textStyle="bold"
+                android:hint="31.12.2019"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+
+            <TextView
+                android:id="@+id/itemCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="6dp"
+                android:foregroundGravity="center_vertical"
+                android:gravity="center"
+                android:hint="MC *1234"
+                android:textSize="14sp"
+                app:drawableTint="@color/grey"
+                app:flow_verticalAlign="center"
+                app:layout_constraintEnd_toEndOf="@+id/itemStatus"
+                app:layout_constraintTop_toTopOf="@+id/itemDate" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="21dp"
+                android:layout_marginEnd="4dp"
+                android:src="@drawable/ic_card"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintEnd_toStartOf="@+id/itemCard"
+                app:layout_constraintTop_toTopOf="@+id/itemCard"
+                app:tint="@color/grey" />
+
+            <TextView
+                android:id="@+id/itemAmount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="$ 253.750.000"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+
+                app:layout_constraintStart_toStartOf="@+id/itemReference"
+                app:layout_constraintTop_toBottomOf="@+id/itemReference" />
+
+            <TextView
+                android:id="@+id/itemStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="RECHAZADO"
+                android:textColorHint="@color/red"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textAlignment="textEnd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/itemAmount" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="4dp"
+                android:src="@drawable/ic_error"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintBottom_toBottomOf="@+id/itemStatus"
+                app:layout_constraintEnd_toStartOf="@+id/itemStatus"
+                app:layout_constraintTop_toTopOf="@+id/itemStatus" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

@@ -11,7 +11,7 @@ data class PaymentDto(
 ){
     constructor(paymentParam: Payment):this(
         payer = paymentParam.payer,
-        payment = PaymentInfoDto(paymentParam.paymentInfo),
+        payment = PaymentInfoDto(paymentParam.product),
         instrument = InstrumentDto(paymentParam.card, paymentParam.installments)
     )
 }

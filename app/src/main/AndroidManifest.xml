@@ -5,14 +5,22 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".EverpayApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.EverPay">
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".presentation.ui.activity.TransactionDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.ui.activity.payment.PaymentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".presentation.ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

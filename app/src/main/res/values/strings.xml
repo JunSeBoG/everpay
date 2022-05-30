@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">EverPay</string>
+    <string name="home">Inicio</string>
+    <string name="transactions">Transacciones</string>
+    <string name="my_cards">Mis Tarjetas</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="card_item_message">%1$s *%2$s</string>
+    <string name="amount_values">$ %1$s</string>
+    <string name="internal_reference">REF: %1$s</string>
 </resources>

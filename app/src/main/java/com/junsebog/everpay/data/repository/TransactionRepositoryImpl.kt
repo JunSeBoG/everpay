@@ -21,17 +21,18 @@ class TransactionRepositoryImpl @Inject constructor(
         return localDataSource.getTransactionList()
     }
 
-    override suspend fun makePayment(payment: Payment) {
-        //TODO Hacer proceso de guardar el payment
-        println("PAGO HECHO API")
-        val a = remoteDataSource.makePayment(payment)
-        a.collect{
+    override suspend fun makePayment(payment: Payment): Int {
+        var internalReference = 0
+
+        remoteDataSource.makePayment(payment).collect{
             localDataSource.insertTransaction(it)
+            internalReference = it.internalReference
         }
 
+        return internalReference
     }
 
-    override fun deleteTransaction(transaction: Transaction) {
+    override suspend fun deleteTransaction(transaction: Transaction) {
         localDataSource.deleteTransaction(transaction)
     }
 }

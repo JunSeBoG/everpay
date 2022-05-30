@@ -1,6 +1,6 @@
 package com.junsebog.everpay.data.remote
 
-import com.junsebog.everpay.common.Common.toTransaction
+import com.junsebog.everpay.common.Extensions.toTransaction
 import com.junsebog.everpay.data.remote.dto.PaymentDto
 import com.junsebog.everpay.domain.model.Payment
 import com.junsebog.everpay.domain.model.Transaction
@@ -12,15 +12,11 @@ import javax.inject.Inject
 class RemoteDataSource @Inject constructor(
     private val evertecApi: EvertecApi
 ){
-
     fun makePayment(payment: Payment): Flow<Transaction>{
         val paymentDto = PaymentDto(payment)
-        println("DTO: $paymentDto")
         return flow {
-            println("FLOW:")
             emit(evertecApi.makeTransaction(paymentDto))
         }.map {
-            println("MAPEO $it")
             it.toTransaction()
         }
     }
